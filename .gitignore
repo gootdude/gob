@@ -2,3 +2,7 @@
 db/*.sqlite3
 log/*.log
 tmp/
+.idea
+.idea/*
+Gemfile.lock
+config/database.yml
