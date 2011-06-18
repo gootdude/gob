@@ -1,5 +1,5 @@
 Given /^there are no operating vendors/ do
-  pending
+  
 end
 When /^I view all operating vendors/ do
   pending
