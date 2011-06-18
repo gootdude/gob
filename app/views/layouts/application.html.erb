@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Gob</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
 
-<%= yield %>
+    <% if user_signed_in? %>
+      <script src="http://connect.facebook.net/en_US/all.js#appId=218523868167997&amp;xfbml=1"></script>
+      <script>
+         FB.init({
+            appId:'218523868167997', cookie:true,
+            status:true, xfbml:true
+         });
 
-</body>
+         var GOOGLE_MAPS_API_KEY = "ABQIAAAAIao_pqN15R-rciPTw_IW4RTJQa0g3IQ9GZqIMmInSLzwtGDKaBTO3e6PBMoE1WV6B07w8721CAm6QA";
+      </script>
+    <% end %>
+  </head>
+  <body>
+
+    <% if user_signed_in? %>
+        Welcome <%= current_user.email %> | 
+        <%= link_to "Logout", destroy_user_session_path %>
+    <% else %>
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+          <%= link_to "Sign in with Foursquare", user_omniauth_authorize_path(:foursquare) %>
+          <%= link_to "Sign in", new_user_session_path %>
+          <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+    
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>
+    </div>
+  </body>
 </html>

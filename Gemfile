@@ -5,17 +5,21 @@ gem 'rails', '3.0.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'heroku'
 #gem 'mysql'
-#gem 'devise'
+#gem 'oa-oauth', :require => 'omniauth/oauth'
+#gem 'faraday', '0.6.1'
+gem 'omniauth'#, '0.2.2'
+gem 'devise'
 #gem 'cancan''
-gem 'jquery-rails'
-#gem 'nifty-generators'
 
 group :development do
-  #gem 'faker'
-  #gem 'populator'
+  gem 'faker'
+  gem 'populator'
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'jquery-rails'
+  gem 'nifty-generators'
 end
 
 # Use unicorn as the web server

@@ -1,6 +1,12 @@
 Gob::Application.routes.draw do
-  root :to => "user#create"
-  get "user/create"
+  resources :locations
+
+  resources :trucks
+
+  devise_for :users, :controllers =>{ :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  root :to => "user#home"
+  #get "user/create"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,5 +65,7 @@ Gob::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-
+  devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
 end
