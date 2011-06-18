@@ -12,9 +12,9 @@ gem 'jquery-rails'
 #gem 'nifty-generators'
 
 group :development do
-  #gem 'faker'
-  #gem 'populator'
-  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'cucumber'
+  gem 'mysql'
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
