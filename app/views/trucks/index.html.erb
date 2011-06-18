@@ -1,0 +1,29 @@
+<h1>Listing trucks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>About</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @trucks.each do |truck| %>
+  <tr>
+    <td><%= truck.name %></td>
+    <td><%= truck.created_at %></td>
+    <td><%= truck.updated_at %></td>
+    <td><%= truck.about %></td>
+    <td><%= link_to 'Show', truck %></td>
+    <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
+    <td><%= link_to 'Destroy', truck, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Truck', new_truck_path %>
