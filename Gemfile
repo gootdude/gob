@@ -17,8 +17,8 @@ gem 'jquery-rails'
 group :development do
   gem 'rspec-rails'
   gem 'cucumber-rails'
-  gem 'mysql'
   gem 'sqlite3'
+  gem 'sqlite3-ruby'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'nifty-generators'
 end
