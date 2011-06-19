@@ -16,11 +16,15 @@ gem 'jquery-rails'
 
 group :development do
   gem 'rspec-rails'
-  gem 'cucumber'
+  gem 'cucumber-rails'
   gem 'mysql'
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'nifty-generators'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 # Use unicorn as the web server

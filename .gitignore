@@ -1,4 +1,5 @@
 .bundle
+db/schema.rb
 db/*.sqlite3
 log/*.log
 tmp/
@@ -6,3 +7,9 @@ tmp/
 .idea/*
 Gemfile.lock
 config/database.yml
+gob_development
+vendor/bin
+vendor/gems
+vendor/doc
+vendor/specifications
+vendor/ruby
